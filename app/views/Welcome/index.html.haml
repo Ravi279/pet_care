@@ -1,0 +1,4 @@
+%h1 Welcome To Pets Care
+  = link_to 'Sign out', sign_out_path
+  = link_to_if current_user.is?(:owner), 'Vets', vets_path
+  = link_to 'Appointments', appointments_path

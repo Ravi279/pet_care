@@ -1,0 +1,29 @@
+.container
+  %p#notice= notice
+
+%h1
+  Dr.#{@vet.name}
+  %p
+    #{@vet.school}
+    #{@vet.experience} years
+
+  %h3 Appointments
+
+  %table.table
+    %tr
+      %th Customer
+      %th Pet
+      %th Appointment Date and Time
+      %th
+    - @vet.appointments.each do |appt|
+      %tbody
+        %tr
+          %td= appt.customer
+          %td= appt.pet
+          %td= appt.visit_on
+
+= link_to 'Enter Pet Details', new_pet_path, :class => 'btn btn-primary'
+\|
+= link_to 'Edit', edit_vet_path(@vet)
+\|
+= link_to 'Back', vets_path

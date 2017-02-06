@@ -1,0 +1,29 @@
+%h1 Listing pets
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th Breed
+      %th Age
+      %th Weight
+      %th Last visit
+      %th
+      
+  %tbody
+    - @pets.each do |pet|
+      %tr
+        %td= pet.name
+        %td= pet.type
+        %td= pet.breed
+        %td= pet.age
+        %td= pet.weight
+        %td= pet.last_visit
+        %td= link_to 'Show', pet
+        %td= link_to 'Edit', edit_pet_path(pet)
+        %td= link_to 'Destroy', pet, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pet', new_pet_path

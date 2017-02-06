@@ -1,0 +1,32 @@
+.container
+  .pull-right
+    = link_to 'Sign out', sign_out_path
+
+%h1 Listing vets
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Address
+      %th City
+      %th State
+      %th Zip
+      %th School
+      %th Experience
+      
+  %tbody
+    - @vets.each do |vet|
+      %tr
+        %td= link_to vet.name, vet_path(vet)
+        %td= vet.address
+        %td= vet.city
+        %td= vet.state
+        %td= vet.zip
+        %td= vet.school
+        %td= vet.experience
+
+%br
+
+= link_to 'New Appointment', new_appointment_path, {:class => 'btn btn-primary'}
+= link_to 'New Vet', new_vet_path, {:class => 'btn'}

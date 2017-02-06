@@ -1,0 +1,25 @@
+.container
+  %p#notice= notice
+
+%p
+  %b Name:
+  = @pet.name
+%p
+  %b Type:
+  = @pet.category
+%p
+  %b Breed:
+  = @pet.breed
+%p
+  %b Age:
+  = @pet.age
+%p
+  %b Weight:
+  = @pet.weight
+%p
+  %b Last visit:
+  = @pet.last_visit
+
+= link_to 'Edit', edit_pet_path(@pet)
+\|
+= link_to 'Back', pets_path

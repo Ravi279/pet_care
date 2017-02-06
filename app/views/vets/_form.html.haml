@@ -1,0 +1,33 @@
+= form_for @vet do |f|
+  - if @vet.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@vet.errors.count, "error")} prohibited this vet from being saved:"
+      %ul
+        - @vet.errors.full_messages.each do |msg|
+          %li= msg
+
+  %label{:for => 'name'} name:
+  %input{:type => 'text', :name => 'name'}
+
+  %label{:for => 'address'} address:
+  %input{:type => 'text', :name => 'address'}
+
+  %label{:for => 'city'} city:
+  %input{:type => 'text', :name => 'city'}
+
+  %label{:for => 'state'} state:
+  %input{:type => 'text', :name => 'state'}
+
+  %label{:for => 'zip'} zip:
+  %input{:type => 'text', :name => 'zip'}
+
+  %label{:for => 'school'} school:
+  %input{:type => 'text', :name => 'school'}
+  %p
+  %br
+  %label{:for => 'experience'} experience:
+  %input{:type => 'text', :name => 'experience'}
+
+  %p
+  .actions
+    = f.submit 'Save'

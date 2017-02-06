@@ -1,0 +1,27 @@
+.container
+  %p#notice= notice
+
+  %p
+    %b Vet:
+    = @appointment.vet.name
+
+  %p
+    %b Customer:
+    = @appointment.customer
+
+  %p
+    %b Pet:
+    = @appointment.pet
+
+  %p
+    %b Visit on:
+    = @appointment.visit_on
+
+  %p
+    %b Reason:
+    = @appointment.reason
+
+
+= link_to 'Edit', edit_appointment_path(@appointment)
+\|
+= link_to 'Back', appointments_path

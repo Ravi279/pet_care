@@ -1,0 +1,32 @@
+= form_for @pet do |f|
+  - if @pet.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pet.errors.count, 'error')} prohibited this pet from being saved:"
+      %ul
+        - @pet.errors.full_messages.each do |msg|
+          %li= msg
+
+  %label{:for => 'customer'} customer:
+  %input{:type => 'text', :name => 'customer'}
+
+  %label{:for => 'name'} name:
+  %input{:type => 'text', :name => 'name'}
+
+  %label{:for => 'category'} category:
+  %input{:type => 'select', :name => 'category', :collection => %w(Dog Cat Bird)}
+
+  %label{:for => 'breed'} breed:
+  %input{:type => 'text', :name => 'breed'}
+
+  %label{:for => 'age'} age:
+  %input{:type => 'text', :name => 'age'}
+
+  %label{:for => 'weight'} weight:
+  %input{:type => 'text', :name => 'weight'}
+  %p
+  %br
+  %label{:for => 'last_visit'} last_visit:
+  = date_select(:visit_on, :order => [:month, :day])
+
+  .actions
+    = f.submit 'Save'

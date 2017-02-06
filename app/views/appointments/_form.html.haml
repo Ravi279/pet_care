@@ -1,0 +1,27 @@
+= form_for @appointment do |f|
+  - if @appointment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@appointment.errors.count, 'error')} prohibited this appointment from being saved:"
+      %ul
+        - @appointment.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  %label{:for => 'vet'} vet:
+  %input{:type => 'text', :name => 'vet'}
+
+  %label{:for => 'customer'} customer:
+  %input{:type => 'text', :name => 'customer'}
+
+  %label{:for => 'pet'} pet:
+  %input{:type => 'text', :name => 'pet'}
+
+  %label{:for => 'visit_on'} visit_on:
+  = date_select(:visit_on, :order => [:month, :day], :start_year =>2015)
+
+  %label{:for => 'reason'} reason:
+  %input{:type => 'text', :name => 'reason'}
+
+  %p
+  .actions
+    = f.submit 'Save'

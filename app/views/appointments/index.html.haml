@@ -1,0 +1,33 @@
+.container
+  .pull-right
+    = link_to 'Sign out', sign_out_path
+
+%h1 Listing appointments
+
+%table
+  %thead
+    %tr
+      %th Vet
+      %th Customer
+      %th Pet
+      %th Visit On
+      %th Reason
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @appointments.each do |appt|
+      %tr
+        %td= link_to appt.vet.name, vet_path(appt.vet)
+        %td= appt.customer
+        %td= appt.pet
+        %td= appt.visit_on
+        %td= appt.reason
+        %td= link_to 'Show', appt
+        %td= link_to 'Edit', edit_appointment_path(appt)
+        %td= link_to 'Destroy', appt, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Appointment', new_appointment_path
